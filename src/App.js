@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, } from "react-router-dom";
 import './App.css';
 import jsPDF from 'jspdf';
 import htmlToImage from 'html-to-image';
@@ -38,16 +39,18 @@ function App() {
     };
 
     return (
-        <>
-            <MainPage
-                name={name}
-                onNameChange={handleChange}
-                file={img}
-                onFileChange={handleFileChange}
-                print={printDocument}
-            />
-            { (img && file) && <Certificate img={file} name={name}/> }
-        </>
+        <Router>
+            <Route exact path="/">
+                <MainPage
+                    name={name}
+                    onNameChange={handleChange}
+                    file={img}
+                    onFileChange={handleFileChange}
+                    print={printDocument}
+                />
+                { (img && file) && <Certificate img={file} name={name}/> }
+            </Route>
+        </Router>
     );
 }
 

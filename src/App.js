@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Certificate from "./Certificate";
+import MainPage from "./MainPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [name, setName] = useState('');
+    const [img, setImg] = useState('');
+    const [file, setFile] = useState(null);
+
+    const handleChange = e => setName(e.target.value);
+    const handleFileChange = e => {
+        setImg(e.target.files);
+        let reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = event => {
+            setFile(event.target.result)
+        }
+    };
+
+    return (
+        <>
+            <MainPage name={name} onNameChange={handleChange} file={img} onFileChange={handleFileChange}/>
+            { (img && file) && <Certificate img={file} name={name}/> }
+        </>
+    );
 }
 
 export default App;

@@ -12,29 +12,29 @@ const Certificate = ({ img, name }) => {
         container: {
             display: 'flex',
             alignItems: 'center',
-            height: '100vh',
+            height: '240mm',
         },
         body: {
             margin: '15px',
-            padding: '90px 100px 0 100px',
+            padding: '190px 100px 0 100px',
             height: '100%',
         },
         name: {
-            fontSize: '2rem',
+            fontSize: '2.1rem',
             borderBottom: '#fe8395 1px solid',
             color: '#fe8395',
         },
     };
 
     return (
-        <div style={style.container} className="hero is-fullheight">
+        <div id="print" style={style.container} className="hero is-fullheight">
             <div style={style.body} className="frame">
                 <div className="columns has-text-centered">
                     <div className="column is-4 firstCol">
-                        <p className="title is-4 text">
+                        <p className="title is-2 text">
                             Felíz día
                         </p>
-                        <p className="subtitle is-6 text">
+                        <p className="subtitle is-5 text">
                             { moment(new Date(Date.now())).format('LL') }
                         </p>
                         <div className="mainLogo">
@@ -45,8 +45,8 @@ const Certificate = ({ img, name }) => {
                             </p>
                         </div>
                     </div>
-                    <div className="column is-7">
-                        <img className="picture" src={img} alt="imagen" width="70%"/>
+                    <div className="column is-7 secondCol">
+                        <img className="picture" src={img} alt="imagen" width="75%"/>
                         <br/><br/>
                         <p className="title is-6 is-spaced">Concedido a: <span style={style.name}>{ name }</span></p>
                         <div className="description">

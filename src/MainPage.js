@@ -3,7 +3,7 @@ import logo from './assets/icon.jpeg';
 import flower from './assets/flowerheart.jpg';
 import './MainPage.css';
 
-const MainPage = ({ name, onNameChange, file, onFileChange }) => {
+const MainPage = ({ name, onNameChange, file, onFileChange, print }) => {
     const style = {
         body: {
             backgroundColor: '#FCC8EA',
@@ -101,7 +101,7 @@ const MainPage = ({ name, onNameChange, file, onFileChange }) => {
                                                     </label>
                                                 </div>
                                             </div>
-                                            <button className="button is-primary is-fullwidth">
+                                            <button className="button is-primary is-fullwidth" onClick={print} disabled={!(name && file)}>
                                                 Descargar
                                             </button>
                                         </div>

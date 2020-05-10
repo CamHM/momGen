@@ -3,19 +3,23 @@
     background-size: 100% 100%;
 }
 .picture {
-    width: 200px;
-    height: 200px;
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
 }
 .description {
     padding: 10px 150px;
 }
 .firstCol {
-    padding-left: 100px;
+    padding-left: 150px;
 }
 .mainLogo {
-    margin-top: 120px;
+    margin-top: 100px;
 }
 .text {
     color: #fe8395;
+}
+.secondCol {
+    padding: 20px;
 }

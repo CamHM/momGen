@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import jsPDF from 'jspdf';
+import htmlToImage from 'html-to-image';
+
 import Certificate from "./Certificate";
 import MainPage from "./MainPage";
 
@@ -18,9 +21,31 @@ function App() {
         }
     };
 
+    const printDocument = () => {
+        let node = document.getElementById('print');
+
+        htmlToImage.toPng(node)
+            .then(function (dataUrl) {
+                let img = new Image();
+                img.src = dataUrl;
+                const pdf = new jsPDF("l", "mm", "a4");
+                pdf.addImage(img, 'PNG', 0, 0, 297, 210);
+                pdf.save(`${name}.pdf`);
+            })
+            .catch(function (error) {
+                console.error('oops, something went wrong!', error);
+            });
+    };
+
     return (
         <>
-            <MainPage name={name} onNameChange={handleChange} file={img} onFileChange={handleFileChange}/>
+            <MainPage
+                name={name}
+                onNameChange={handleChange}
+                file={img}
+                onFileChange={handleFileChange}
+                print={printDocument}
+            />
             { (img && file) && <Certificate img={file} name={name}/> }
         </>
     );

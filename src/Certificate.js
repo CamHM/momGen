@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './assets/icon.jpeg';
+import logo from './icon.jpeg';
 import moment from "moment";
 import 'moment/locale/es';
 import './Certificate.css';

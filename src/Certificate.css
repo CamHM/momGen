@@ -1,5 +1,5 @@
 .frame {
-    background-image: url("assets/borderB-c.jpg");
+    background-image: url(./borderB-c.jpg);
     background-size: 100% 100%;
 }
 .picture {

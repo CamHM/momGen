@@ -1,6 +1,6 @@
 import React from "react";
-import logo from './assets/icon.jpeg';
-import flower from './assets/flowerheart.jpg';
+import logo from './icon.jpeg';
+import flower from './flowerheart.jpg';
 import './MainPage.css';
 
 const MainPage = ({ name, onNameChange, file, onFileChange, print }) => {
